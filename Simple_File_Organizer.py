@@ -1,5 +1,5 @@
 '''
-Simple File Organizer Version 0.1
+Simple File Organizer Version 0.11
 Created by Hyusein Berk Kanberoglu
 '''
 
@@ -12,7 +12,7 @@ target_directory = r"C:\Users\User\Downloads"
 
 # Categorizing all the file extensions
 category_map = {
-    "Images": [".jpg", ".jpeg", ".png", ".gif", ".webp", ".tiff", ".tif", ".psd", ".raw", ".bmp", "dib", ".heif", ".heic", ".indd", ".svg", ".ai", ".eps", ".ps", ".svgz"],
+    "Images": [".jpg", ".jpeg", ".png", ".gif", ".webp", ".tiff", ".tif", ".psd", ".raw", ".bmp", ".dib", ".heif", ".heic", ".indd", ".svg", ".ai", ".eps", ".ps", ".svgz"],
 
     "Videos": [".mp4", ".avi", ".mov", ".mkv", ".wmv", ".flv", ".webm", ".3gp", ".m4v", ".ts", ".mts", ".rmvb", ".rm", ".vob", ".ogv", ".ogg", ".mng", ".mpeg", ".mpg"],
 
@@ -35,7 +35,7 @@ for folder_name, extensions_list in category_map.items():
         # Assign the folder name as a value for the key
         extension_map[extension] = folder_name
 
-# After this loop the extension map will create a new didrectory
+# After this loop, extension_map contains a direct mapping of extensions to folder names
 
 # Iterate through the items in the target directory
 for item_name in os.listdir(target_directory):
