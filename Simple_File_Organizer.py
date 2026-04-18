@@ -1,0 +1,67 @@
+'''
+Simple File Organizer Version 0.1
+Created by Hyusein Berk Kanberoglu
+'''
+
+import os
+import shutil
+
+# The directory where the files will be sorted
+# !!! Don't forget to write your own target path here for this code to work !!!
+target_directory = r"C:\Users\User\Downloads"
+
+# Categorizing all the file extensions
+category_map = {
+    "Images": [".jpg", ".jpeg", ".png", ".gif", ".webp", ".tiff", ".tif", ".psd", ".raw", ".bmp", "dib", ".heif", ".heic", ".indd", ".svg", ".ai", ".eps", ".ps", ".svgz"],
+
+    "Videos": [".mp4", ".avi", ".mov", ".mkv", ".wmv", ".flv", ".webm", ".3gp", ".m4v", ".ts", ".mts", ".rmvb", ".rm", ".vob", ".ogv", ".ogg", ".mng", ".mpeg", ".mpg"],
+
+    "Audio": [".mp3", ".wav", ".flac", ".aac", ".ogg", ".m4a"],
+
+    "Documents": [".pdf", ".txt", ".docx", ".md", ".xlsx", ".pptx", ".csv", ".word", ".numbers", ".pages"],
+
+    "Archives": [".zip", ".tar", ".gz", ".rar", ".7z", ".iso"],
+
+    "Code": [".py", ".c", ".cpp", ".java", ".cs", ".js", ".ts", ".rb", ".go", ".swift"]
+}
+
+# An empty dictionary for the program to use
+extension_map = {}
+
+# Iterate through the categories and their associated lists
+for folder_name, extensions_list in category_map.items():
+    # Iterate through each extension inside the list
+    for extension in extensions_list:
+        # Assign the folder name as a value for the key
+        extension_map[extension] = folder_name
+
+# After this loop the extension map will create a new didrectory
+
+# Iterate through the items in the target directory
+for item_name in os.listdir(target_directory):
+    # Create the full path to the items
+    item_path = os.path.join(target_directory, item_name)
+
+    # Check if the item is an actual file, not a directory
+    if os.path.isfile(item_path):
+        # Split the file name from the file extension
+        file_name, file_extension = os.path.splitext(item_name)
+
+        # Convert the extension to lowercase to avoid potential case sensitivity issues
+        file_extension = file_extension.lower()
+
+        # If the extension is in the map, it returns the folder name. If not, it returns "Others"
+        destination_folder_name = extension_map.get(file_extension, "Others")
+
+        # Merging the target directory with the destination folder
+        destination_folder_path = os.path.join(target_directory, destination_folder_name)
+
+        # Create the folder if it doesn't exist, otherwise just skip it
+        os.makedirs(destination_folder_path, exist_ok=True)
+
+        # Constructing the path for the file to be moved
+        destination_file_path = os.path.join(destination_folder_path, item_name)
+        shutil.move(item_path, destination_file_path)
+
+        # Print a confirmation to the terminal so the process can be monitored
+        print(f"Moved: {item_name} --> {destination_folder_name}")
