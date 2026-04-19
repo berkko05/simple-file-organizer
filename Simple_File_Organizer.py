@@ -1,13 +1,12 @@
 '''
-Simple File Organizer Version 0.11
+Simple File Organizer Version 0.2
 Created by Hyusein Berk Kanberoglu
 '''
 
 import os
-import shutil
 
 # The directory where the files will be sorted
-# !!! Don't forget to write your own target path here for this code to work !!!
+# !!! Do not forget to write your own target path here for this code to work !!!
 target_directory = r"C:\Users\User\Downloads"
 
 # Categorizing all the file extensions
@@ -61,7 +60,25 @@ for item_name in os.listdir(target_directory):
 
         # Constructing the path for the file to be moved
         destination_file_path = os.path.join(destination_folder_path, item_name)
-        shutil.move(item_path, destination_file_path)
+
+        # A counter to help rename files with the same name
+        counter = 1
+
+        while True:
+            # If there is a FileExistsError, the program will jump to the except part
+            try:
+                # Move the file to the destination folder
+                os.rename(item_path, destination_file_path)
+
+                # End the loop if the file is successfully moved
+                break
+
+            # If there is a file with the same name, the program will run this part
+            except FileExistsError:
+                # If a file with the same name exists catch the error, generate a new name, and loop again.
+                new_file_name = f"{file_name}({counter}){file_extension}"
+                destination_file_path = os.path.join(destination_folder_path, new_file_name)
+                counter += 1
 
         # Print a confirmation to the terminal so the process can be monitored
         print(f"Moved: {item_name} --> {destination_folder_name}")
