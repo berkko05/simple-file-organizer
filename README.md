@@ -1,0 +1,27 @@
+## Simple File Organizer (SFO)
+
+SFO is a lightweight utility that automatically categorizes and moves files from a source directory into specific, sorted folders based on their extensions.
+
+## Development Roadmap
+
+This project is actively being developed. Below are the planned milestones for transitioning this pure-logic script into a fully functional desktop application.
+
+### [v0.3] Dynamic Path Selection & Target Routing
+* **Goal:** Eliminate the need to hardcode file paths inside the script.
+* **Implementation:** * Integrate a native OS folder selection window.
+  * Allow the user to define separate "Source" and "Target" directories.
+
+### [v0.4] Cross-Drive Architecture Upgrades
+* **Goal:** Ensure data safety when moving files across different physical storage drives.
+* **Implementation:** * Transition the core moving function from `os.rename()` (which does not work across different drives) to a `shutil` pipeline.
+  * Rewrite the duplicate file handling model using `os.path.exists()` to strictly prevent files from being overwritten.
+
+### [v0.5] Graphical User Interface
+* **Goal:** Make the tool fully accessible to non-technical users with a working interface.
+* **Implementation:** * Build a clean, modern user interface.
+  * Map the existing Python logic functions to UI buttons and progress indicators.
+
+### [v1.0] Standalone Binary Release
+* **Goal:** Distribute the software as a zero-dependency application.
+* **Implementation:** * Compile the complete Python script into a standalone executable.
+  * Release native `.exe` executables for Windows and binaries for Linux environments.
