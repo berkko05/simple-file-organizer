@@ -8,7 +8,7 @@ import shutil
 
 # The directory where the files will be sorted
 # !!! Do not forget to write your own target path here for this code to work !!!
-target_directory = r"C:\Users\Acer\Downloads"
+target_directory = r"C:\Users\User\Downloads"
 
 # Categorizing all the file extensions
 category_map = {
