@@ -1,5 +1,5 @@
 '''
-Simple File Organizer Version 0.2.1
+Simple File Organizer Version 0.2.2
 Created by Hyusein Berk Kanberoglu
 '''
 
@@ -45,6 +45,10 @@ category_map = {
         ".go", ".swift", ".sh", ".bash", ".zsh", ".fish", ".s", ".asm", ".ipynb",
         ".json", ".yaml", ".yml", ".xml", ".html", ".css", ".php", ".sql", ".r",
         ".kt", ".dart", ".rs", ".pl", ".lua"
+    ],
+
+    "Executables": [
+        ".exe", ".msi", ".bat", ".cmd", ".sh", ".AppImage", ".run"
     ]
 }
 
