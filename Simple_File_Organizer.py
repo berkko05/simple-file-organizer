@@ -1,13 +1,14 @@
 '''
-Simple File Organizer Version 0.2.2
+Simple File Organizer Version 0.3.0
 Created by Hyusein Berk Kanberoglu
 '''
 
 import os
+import shutil
 
 # The directory where the files will be sorted
 # !!! Do not forget to write your own target path here for this code to work !!!
-target_directory = r"C:\Users\User\Downloads"
+target_directory = r"C:\Users\Acer\Downloads"
 
 # Categorizing all the file extensions
 category_map = {
@@ -92,21 +93,15 @@ for item_name in os.listdir(target_directory):
         # A counter to help rename files with the same name
         counter = 1
 
-        while True:
-            # If there is a FileExistsError, the program will jump to the except part
-            try:
-                # Move the file to the destination folder
-                os.rename(item_path, destination_file_path)
+        # Look Before You Leap approach for Collision Resolution
+        while os.path.exists(destination_file_path):
+            # Constructing the new file name with a counter, (so we can count!)
+            new_file_name = f"{file_name}({counter}){file_extension}"
+            destination_file_path = os.path.join(destination_folder_path, new_file_name)
+            counter += 1
 
-                # End the loop if the file is successfully moved
-                break
-
-            # If there is a file with the same name, the program will run this part
-            except FileExistsError:
-                # If a file with the same name exists catch the error, generate a new name, and loop again.
-                new_file_name = f"{file_name}({counter}){file_extension}"
-                destination_file_path = os.path.join(destination_folder_path, new_file_name)
-                counter += 1
+        # Perform the cross-drive compatible move
+        shutil.move(item_path, destination_file_path)
 
         # Print a confirmation to the terminal so the process can be monitored
         print(f"Moved: {item_name} --> {destination_folder_name}")
