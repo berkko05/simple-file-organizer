@@ -1,5 +1,5 @@
 '''
-Simple File Organizer Version 0.2
+Simple File Organizer Version 0.2.1
 Created by Hyusein Berk Kanberoglu
 '''
 
@@ -11,17 +11,41 @@ target_directory = r"C:\Users\User\Downloads"
 
 # Categorizing all the file extensions
 category_map = {
-    "Images": [".jpg", ".jpeg", ".png", ".gif", ".webp", ".tiff", ".tif", ".psd", ".raw", ".bmp", ".dib", ".heif", ".heic", ".indd", ".svg", ".ai", ".eps", ".ps", ".svgz"],
+    "Images": [
+        ".jpg", ".jpeg", ".png", ".gif", ".webp", ".tiff", ".tif", ".psd", ".raw",
+        ".bmp", ".dib", ".heif", ".heic", ".indd", ".svg", ".ai", ".eps", ".ps",
+        ".svgz", ".ico", ".icns", ".xcf", ".cr2", ".nef", ".orf", ".sr2", ".jfif"
+    ],
 
-    "Videos": [".mp4", ".avi", ".mov", ".mkv", ".wmv", ".flv", ".webm", ".3gp", ".m4v", ".ts", ".mts", ".rmvb", ".rm", ".vob", ".ogv", ".ogg", ".mng", ".mpeg", ".mpg"],
+    "Videos": [
+        ".mp4", ".avi", ".mov", ".mkv", ".wmv", ".flv", ".webm", ".3gp", ".m4v",
+        ".ts", ".mts", ".rmvb", ".rm", ".vob", ".ogv", ".ogg", ".mng", ".mpeg",
+        ".mpg", ".m2ts", ".mxf", ".f4v"
+    ],
 
-    "Audio": [".mp3", ".wav", ".flac", ".aac", ".ogg", ".m4a"],
+    "Audio": [
+        ".mp3", ".wav", ".flac", ".aac", ".ogg", ".m4a", ".wma", ".alac", ".aiff",
+        ".amr", ".ape", ".au", ".opus", ".m4b", ".m4p"
+    ],
 
-    "Documents": [".pdf", ".txt", ".docx", ".md", ".xlsx", ".pptx", ".csv", ".word", ".numbers", ".pages"],
+    "Documents": [
+        ".pdf", ".txt", ".docx", ".doc", ".md", ".xlsx", ".xls", ".pptx", ".ppt",
+        ".csv", ".word", ".numbers", ".pages", ".rtf", ".odt", ".ods", ".odp",
+        ".tex", ".epub", ".mobi", ".azw3"
+    ],
 
-    "Archives": [".zip", ".tar", ".gz", ".rar", ".7z", ".iso"],
+    "Archives": [
+        ".zip", ".tar", ".gz", ".rar", ".7z", ".iso", ".tar.gz", ".tar.bz2",
+        ".tar.xz", ".pkg.tar.zst", ".deb", ".rpm", ".cab", ".z", ".bz2", ".xz",
+        ".lzma", ".tgz"
+    ],
 
-    "Code": [".py", ".c", ".cpp", ".java", ".cs", ".js", ".ts", ".rb", ".go", ".swift"]
+    "Code": [
+        ".py", ".c", ".cpp", ".h", ".hpp", ".java", ".cs", ".js", ".ts", ".rb",
+        ".go", ".swift", ".sh", ".bash", ".zsh", ".fish", ".s", ".asm", ".ipynb",
+        ".json", ".yaml", ".yml", ".xml", ".html", ".css", ".php", ".sql", ".r",
+        ".kt", ".dart", ".rs", ".pl", ".lua"
+    ]
 }
 
 # An empty dictionary for the program to use
