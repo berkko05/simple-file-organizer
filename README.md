@@ -7,10 +7,6 @@ SFO is a lightweight utility that automatically categorizes and moves files from
 This project is actively being developed. Below are the planned milestones for transitioning this pure-logic script into a fully functional desktop application.
 
 
-### [v0.3] Cross-Drive Architecture Upgrades
-* **Goal:** Ensure data safety when moving files across different physical storage drives.
-* **Implementation:** * Transition the core moving function from `os.rename()` (which does not work across different drives) to a `shutil` pipeline.
-  * Rewrite the duplicate file handling model using `os.path.exists()` to strictly prevent files from being overwritten.
 
 ### [v0.4] Dynamic Path Selection & Target Routing
 * **Goal:** Eliminate the need to hardcode file paths inside the script.
