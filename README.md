@@ -7,12 +7,6 @@ SFO is a lightweight utility that automatically categorizes and moves files from
 This project is actively being developed. Below are the planned milestones for transitioning this pure-logic script into a fully functional desktop application.
 
 
-
-### [v0.4] Dynamic Path Selection & Target Routing
-* **Goal:** Eliminate the need to hardcode file paths inside the script.
-* **Implementation:** * Integrate a native OS folder selection window.
-  * Allow the user to define separate "Source" and "Target" directories.
-
 ### [v0.5] Graphical User Interface
 * **Goal:** Make the tool fully accessible to non-technical users with a working interface.
 * **Implementation:** * Build a clean, modern user interface.
